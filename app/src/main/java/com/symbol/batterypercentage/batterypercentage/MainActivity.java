@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context ctxt, Intent intent) {
             int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
             batteryTxt.setText("Battery Level: " + String.valueOf(level) + "%");
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setTitle(batteryTxt.getText().toString());
         }
     };
 
